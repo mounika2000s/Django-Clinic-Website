@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Doctors{% endblock %}
+
+{% block content %}
+<section class="d-flex justify-content-center pt-5 mb-3">
+  <a href="{% url 'add_doctor' %}" class ="btn btn-info text-dark">Add Doctor</a>
+  
+</section>
+<div class="container my-4">
+  <div class="row">
+    {% for doctor in doctors %}
+      {% include "doctor/includes/doctor_card.html" %}
+    {% empty %}
+      <div class="col-12">
+        <p>No doctors available yet.</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

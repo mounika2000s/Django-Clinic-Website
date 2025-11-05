@@ -1,0 +1,23 @@
+<!-- For Delete action doctors -->
+ 
+{% extends 'base/base.html' %}
+
+{% block title %}
+Remove Doctor
+{% endblock %}
+
+{% block content %}
+<div class="container p-5 mt-5">
+  <div class="card shadow p-4 mx-auto w-50">
+    <h2 class="text-center mb-4">Delete Doctor</h2>
+    <p class="text-center text-danger mb-4">
+      <strong>Warning:</strong> Deleting this Doctor.<br>
+      <em>This cannot be undone.</em>
+    </p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger mx-auto d-block px-5">Confirm</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

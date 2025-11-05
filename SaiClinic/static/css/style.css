@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header#site-header {
+    height: 45px;
+}
+
+main {
+    margin-top: 58px;
+    margin-bottom: 30px;
+
+    #home-carousel {
+        .custom-carousel img {
+            aspect-ratio: 16/6.3;
+            object-position: top;
+            object-fit: fill;
+        }
+    }
+
+    #carousel-preview {
+
+        .custom-carousel img {
+            aspect-ratio: 16/8;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    .carousel-cards-container { 
+        div.card {
+            height: 160px;
+            img {
+                aspect-ratio: 16/8;
+                width: 100%;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+    }
+
+
+}
+ 
+ .card img {
+  width: 300px;   
+  height: 400px;  
+  object-fit: cover; 
+  border-radius: 10px; 
+}
+
+.button {
+    display: flex;
+    width: 100%;
+    color: white;
+    border: black 2px;
+}
