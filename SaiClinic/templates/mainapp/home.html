@@ -10,4 +10,17 @@ this is about Home page
     {% include "mainapp/includes/carousel.html" %}
 </section>
 
+<div class="container my-4 doctors-grid" id="doctors">
+  <div class="row">
+    {% for doctor in doctors %}
+      {% include "doctor/includes/doctor_card.html" %}
+    {% empty %}
+      <div class="col-12">
+        <p>No doctors available yet.</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
 {% endblock %}

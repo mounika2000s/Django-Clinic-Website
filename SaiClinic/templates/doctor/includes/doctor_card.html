@@ -4,7 +4,7 @@
   <div class="card h-100 shadow-sm border-0">
     {% if doctor.image %}
       <img src="{{ doctor.image.url }}" class="card-img-top" alt="{{ doctor.full_name }}">
-    {% else %}
+      {% else %}
       <img src="{% static 'images/default-doctor.png' %}" class="card-img-top" alt="No image">
     {% endif %}
 
@@ -15,9 +15,12 @@
       {% endif %}
       <p class="mb-1 small text-muted"><strong>Phone: </strong> {{ doctor.phno }}</p>
       <p class="mb-2 small text-muted"><strong>Email:</strong> {{ doctor.email }}</p>
+      <p class="mb-1 small"><strong>Rate :</strong> Rs. {{doctor.rate}}</p>
 
       <div class="button mt-auto">
-        <a href="#" class="btn btn btn-info btn-outline-dark btn-sm w-100 ">Book Appoinment</a>
+        {% if not user.is_staff and not user.doctor_profile %}
+        <a href="{% url 'add_appointment' %}?doctor_id={{ doctor.id }}" class="btn btn btn-info btn-outline-dark btn-sm w-100 ">Book Appoinment</a>
+        {% endif %}
         <a href="{% url 'doctor_detail' doctor.id %}" class="btn  btn btn-info btn-outline-dark btn-sm w-100">View Details</a>
       </div>
     </div>

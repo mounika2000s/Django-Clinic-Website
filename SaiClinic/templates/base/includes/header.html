@@ -1,5 +1,5 @@
 <header id="site-header" class="fixed-top shadow-sm">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1" data-bs-theme="dark">
     <div class="container">
       <!-- Brand -->
       <a class="navbar-brand fw-bold text-info fs-3" href="{% url 'home_page' %}">
@@ -29,17 +29,41 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-3" href="#" id="signinDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-circle"></i> Sign In
-            </a>
+              <i class="bi bi-person-circle"></i> 
+              {% if user.is_authenticated %}
+                {% if user.doctor_profile %}
+                  {{user.doctor_profile.doctor.full_name}}
+                {% else %}
+                  {{user.username.capitalize}}
+                {% endif %}
+              {% else %}
+                Accounts
+              {% endif %} </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="signinDropdown">
-              <li><a class="dropdown-item" href="#">Mail ID</a></li>
-              <li><a class="dropdown-item" href="#">Password</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-success fw-semibold" href="#">Login</a></li>
+              {% if user.is_authenticated %}
+              <li>
+                <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+
+                  <button type="submit" class="dropdown-item">
+                    Logout
+                  </button>
+                </form>
+              </li>
+              {% if not user.is_staff and not user.doctor_profile %}
+              <li><a class="dropdown-item" href="{% url 'view_patients' %}">My Family</a></li>
+              {% endif %}
+              <li><a href="{% url 'appointment_list' %}" class="dropdown-item">My Bookings</a></li>
+              {% else %}
+              <li><a class="dropdown-item" href="{% url 'signin' %}">Login</a></li>
+              <li><a class="dropdown-item" href="{% url 'signup' %}">Register</a></li>
+              {% endif %}
+
             </ul>
           </li>
 
           <!-- Staff Operator Dropdown -->
+          {% if user.is_staff %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white px-3" href="#" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
@@ -51,6 +75,9 @@
               <li><a class="dropdown-item" href="#">Manage Appointment</a></li>
             </ul>
           </li>
+          {% endif %}
+
+
         </ul>
 
         <!-- Search Form -->

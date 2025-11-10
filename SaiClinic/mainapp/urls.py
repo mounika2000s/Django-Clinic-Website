@@ -1,6 +1,6 @@
 #url routing for mainapp 
 
-from django.urls import path
+from django.urls import path, include
 from .views import homeView, aboutView, contactView
 from .views import ViewCarouselImages, AddCarouselImage, EditCarousel, RemoveCarousel
 
@@ -12,7 +12,8 @@ urlpatterns =[
     path('contact', contactView, name='contact_page'),
     path('carousel/del/<int:pk>', RemoveCarousel.as_view(),name ='del_carousel'),
     path('carousel/edit/<int:pk>', EditCarousel.as_view(), name = 'edit_carousel'),
+    path('patients/', include('patients.urls')),
+
     
 ]
-
 

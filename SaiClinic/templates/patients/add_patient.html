@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Add New Patient {% endblock %}
+
+{% block content %}
+<div>
+    <h2 class="text-center pt-3 mb-3">Add Member</h2>
+</div>
+
+<div class="container w-50 mx-auto card shadow p-3">
+    <form method="post" enctype="multipart/form-data" class="p-3">
+        {% csrf_token %}
+
+        <!-- ✅ Display non-field (form-wide) errors -->
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- ✅ Render each field -->
+        {% for field in form %}
+        <div class="form-group row mb-2">
+            <label class="col-sm-3 col-form-label">{{ field.label }}</label>
+            <div class="col-sm-9">
+                {{ field }}
+                {% if field.errors %}
+                    <div class="text-danger">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-success">Add Patient</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

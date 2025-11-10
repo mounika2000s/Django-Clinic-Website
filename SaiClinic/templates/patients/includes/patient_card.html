@@ -1,0 +1,41 @@
+{% load static %}
+
+<div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+  <div class="card h-100 shadow-sm border-0">
+
+    <!-- Image Section -->
+    <div class="patient-image-wrapper bg-dark d-flex justify-content-center align-items-center" 
+         style="height: 200px; overflow: hidden; border-top-left-radius: 0.375rem; border-top-right-radius: 0.375rem;">
+      {% if patient.image %}
+        <img src="{{ patient.image.url }}" alt="{{ patient.name }}"
+             class="img-fluid w-100 h-100" style="object-fit: cover;">
+      {% else %}
+        <span class="text-light small">No Image</span>
+      {% endif %}
+    </div>
+
+    <!-- Card Body -->
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title mb-2 text-primary fw-semibold">{{ patient.name }}</h5>
+
+      <ul class="list-unstyled small text-muted mb-3">
+        <li><strong>DOB:</strong> {{ patient.dob }}</li>
+        <li><strong>Gender:</strong> {{ patient.get_gender_display }}</li>
+        <li><strong>Email:</strong> {{ patient.email }}</li>
+        <li><strong>Relation:</strong> {{ patient.get_relation_type_display }}</li>
+        <li><strong>User:</strong> {{ patient.user.username }}</li>
+      </ul>
+
+      <!-- Buttons -->
+      <div class="mt-auto d-grid gap-2">
+        <a href="{% url 'edit_patient' patient.id %}" class="btn btn-outline-secondary btn-sm">
+          <i class="bi bi-pencil"></i> Edit
+        </a>
+        <a href="{% url 'delete_patient' patient.id %}" class="btn btn-outline-danger btn-sm">
+          <i class="bi bi-trash"></i> Delete
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

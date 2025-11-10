@@ -1,11 +1,85 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %}
-about
+About Us
 {% endblock %}
 
 {% block content %}
+<div class="container my-5">
+  <!-- Page Title -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-primary">About Sai Clinic</h1>
+    <p class="text-muted">Caring for your health, every step of the way.</p>
+  </div>
 
-this is the about page
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img src="{% static 'images/carousel1.png' %}"
+           alt="saiclinic" class="img-fluid rounded shadow">
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-primary mb-3">Welcome to Sai Clinic</h3>
+      <p>
+        At <strong>Sai Clinic</strong>, we are committed to providing compassionate,
+        personalized, and affordable healthcare to individuals and families.
+      </p>
+      <p>
+        Our clinic is equipped with modern facilities, advanced diagnostic tools,
+        and a patient-friendly environment that prioritizes comfort, safety, and
+        confidentiality.
+      </p>
+        <h4 class="text-primary">Our Vision</h4>
+      <p>
+        To be recognized as a trusted healthcare provider known for excellence,
+        empathy, and community care.
+      </p>
+      <p>
+         <h4 class="text-primary">Our Mission</h4>
+        To make quality healthcare accessible and efficient for everyone
+        through compassion, innovation, and a patient-centered approach.
+      </p>
+    </div>
+  </div>
+  </div>
 
+  <div class="text-center my-5">
+    <h3 class="fw-bold text-primary mb-4">Why Choose Sai Clinic?</h3>
+    <div class="row">
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card border-0 shadow-sm p-3 h-100">
+          <h5>Experienced Doctors</h5>
+          <p class="text-muted">Highly qualified specialists committed to your well-being.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card border-0 shadow-sm p-3 h-100">
+          <h5>Modern Facilities</h5>
+          <p class="text-muted">Equipped with the latest technology for accurate diagnosis.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card border-0 shadow-sm p-3 h-100">
+          <h5>Easy Appointments</h5>
+          <p class="text-muted">Book and manage appointments online with ease.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card border-0 shadow-sm p-3 h-100">
+          <h5>Affordable Care</h5>
+          <p class="text-muted">High-quality treatment plans that fit your budget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-light p-5 rounded text-center">
+    <h4 class="fw-bold text-primary mb-3">Visit or Contact Us</h4>
+    <p>
+      📍 <strong>Location:</strong> 123 Main Street, Bangulur, Karnataka, India <br>
+      ☎️ <strong>Phone:</strong> +91 7036758642 <br>
+      ✉️ <strong>Email:</strong> contact@saiclinic.com
+    </p>
+  </div>
+</div>
 {% endblock %}

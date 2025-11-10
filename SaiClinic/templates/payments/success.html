@@ -1,0 +1,90 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Payment Successful{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f7f8fc;
+    }
+    .success-card {
+        max-width: 550px;
+        background: #ffffff;
+        margin: 50px auto;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+        text-align: center;
+        animation: fadeIn 0.6s ease;
+    }
+    .success-icon {
+        width: 80px;
+        height: 80px;
+        background: #28a745;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        margin: 0 auto 20px;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+    }
+    .details-box {
+        background: #f0f9f0;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .btn-primary {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        padding: 12px;
+        font-size: 18px;
+        border-radius: 10px;
+        font-weight: 500;
+    }
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="success-card">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h1 class="text-success mb-3">Payment Successful!</h1>
+
+    <p class="mb-2"><strong>Appointment ID:</strong> {{ order.id }}</p>
+    <p class="mb-2"><strong>Date:</strong> {{ order.date }}</p>
+    <p class="mb-2"><strong>Time:</strong> {{ order.time }}</p>
+
+    <div class="details-box mt-3">
+        <p><strong>Doctor:</strong> {{ order.doctor.full_name }}</p>
+        <p><strong>Patient:</strong> {{ order.patient.name }}</p>
+        <p><strong>Amount Paid:</strong> ₹{{ order.total_amount }}</p>
+        <p><span class="badge bg-success">Status: Payment Complete</span></p>
+    </div>
+
+    <a href="{% url 'appointment_list' %}" class="btn btn-primary w-100 mt-4">
+        View Your Appointments
+    </a>
+
+</div>
+
+{% endblock %}

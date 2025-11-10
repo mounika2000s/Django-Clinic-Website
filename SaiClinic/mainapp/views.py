@@ -2,13 +2,16 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 
 from .models import CarouselImage
+from doctors.models import Doctor
 
 # Create your views here.
 def homeView(request):
     template_name ='mainapp/home.html'
     context ={
         #dictionary with context data
-        'carousel_images': CarouselImage.objects.all()
+        'carousel_images': CarouselImage.objects.all(),
+
+        'doctors' : Doctor.objects.all()
     }
     return render(request, template_name, context)
 

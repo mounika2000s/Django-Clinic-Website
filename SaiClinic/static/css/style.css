@@ -9,21 +9,23 @@ header#site-header {
 }
 
 main {
-    margin-top: 58px;
+    margin-top:60px;
     margin-bottom: 30px;
 
     #home-carousel {
         .custom-carousel img {
-            aspect-ratio: 16/6.3;
-            object-position: top;
+            aspect-ratio: 14/4;
+             object-position: top;
+            /* object-fit: cover; */
             object-fit: fill;
+           margin-right: 30px;
         }
     }
 
     #carousel-preview {
 
         .custom-carousel img {
-            aspect-ratio: 16/8;
+            aspect-ratio: 14/4;
             object-fit: cover;
             object-position: top;
         }
@@ -31,11 +33,12 @@ main {
 
     .carousel-cards-container { 
         div.card {
-            height: 160px;
+            margin-top: 10px;
+            height: 360px;
             img {
                 aspect-ratio: 16/8;
-                width: 100%;
-                object-fit: cover;
+                width: 100%; 
+                object-fit: contain;
                 object-position: top;
             }
         }
@@ -57,3 +60,4 @@ main {
     color: white;
     border: black 2px;
 }
+

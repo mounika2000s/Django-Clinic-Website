@@ -1,0 +1,22 @@
+<!-- For Delete action doctors -->
+ 
+{% extends 'base/base.html' %}
+
+{% block title %}
+Remove <!-- For Delete action doctors -->
+{% endblock %}
+
+{% block content %}
+<div class="container p-5 mt-5">
+  <div class="card shadow p-4 mx-auto w-50">
+    <h2 class="text-center mb-4">Delete patient</h2>
+    <p class="text-center text-danger mb-4">
+      <strong>Warning:</strong> Removing this patient from data cannot be retrive.<br>
+    </p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger mx-auto d-block px-5">Confirm</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

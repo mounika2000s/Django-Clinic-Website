@@ -1,11 +1,55 @@
-{% extends 'base/base.html' %}
+{% extends "base/base.html" %}
+{% load static %}
 
 {% block title %}
-contact
+Contact SaiClinic
+{% endblock %}
+
+{% block footer %}
+  {% include 'base/includes/footer.html' %}
 {% endblock %}
 
 {% block content %}
+<section class="py-5 bg-light text-dark">
+  <div class="container">
 
-this is the contact page
+    <div class="text-center mb-4">
+      <h2 class="fw-bold mb-2 text-primary">Contact Us</h2>
+      <p class="text-muted">Whether it's questions, feedback, or appointment requests — we’re just a message away.</p>
+    </div>
 
+    <!-- Centered single card row -->
+    <div class="row justify-content-center g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 text-center">
+          <div class="card-body">
+            <i class="fa fa-user-circle fa-3x text-primary mb-3"></i>
+            <h5 class="fw-bold">Madhavi</h5>
+            <p class="text-muted mb-1">Appointment Coordinator</p>
+            <p class="small mb-1"><i class="fa-solid fa-envelope me-2"></i> contact@saiclinic.com</p>
+            <p class="small"><i class="fa-solid fa-phone me-2 text-danger"></i> +91 7036758642</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <h6 class="fw-bold text-uppercase text-primary">Head Office</h6>
+      <p class="mb-1 text-muted">SaiClinic Hospital, 123 Main Street, Bangalore, Karnataka, India</p>
+      <p class="mb-1"><i class="fa-solid fa-envelope"></i> support@saiclinic.com</p>
+      <p><i class="fa-solid fa-phone"></i> +91 70367 58642</p>
+    </div>
+
+    <div class="text-center mt-4">
+      <h6 class="fw-bold text-uppercase mb-3 text-primary">Stay Connected</h6>
+      <div class="mt-2">
+        <a href="#" class="text-dark mx-2 fs-4" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="text-dark mx-2 fs-4" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" class="text-dark mx-2 fs-4" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-dark mx-2 fs-4" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
 {% endblock %}
