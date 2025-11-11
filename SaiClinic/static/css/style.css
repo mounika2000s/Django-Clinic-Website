@@ -5,7 +5,7 @@
 }
 
 header#site-header {
-    height: 45px;
+    height: 50px;
 }
 
 main {
@@ -13,8 +13,12 @@ main {
     margin-bottom: 30px;
 
     #home-carousel {
+        width: 80%;
+        margin: auto;
+        background-color: black;
         .custom-carousel img {
-            aspect-ratio: 14/6.5;
+            width: 100%;
+            aspect-ratio: 6/1;
              object-position: top;
             /* object-fit: cover; */
             object-fit: fill;
@@ -25,7 +29,7 @@ main {
     #carousel-preview {
 
         .custom-carousel img {
-            aspect-ratio: 14/4;
+            aspect-ratio: 6/3;
             object-fit: cover;
             object-position: top;
         }
@@ -36,20 +40,27 @@ main {
             margin-top: 10px;
             height: 360px;
             img {
-                aspect-ratio: 16/8;
+                aspect-ratio: 6/3;
                 width: 100%; 
                 object-fit: contain;
                 object-position: top;
             }
         }
+
     }
+}
 
-
+.card1 img {
+    width: 90%px;   
+    height: 150px;  
+    object-fit: cover; 
+    border-radius: 10px;
+    margin-right: 4px;
 }
  
  .card img {
-  width: 300px;   
-  height: 400px;  
+  width: 250px;   
+  height: 300px;  
   object-fit: cover; 
   border-radius: 10px; 
 }
