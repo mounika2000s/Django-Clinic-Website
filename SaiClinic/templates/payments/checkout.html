@@ -73,7 +73,9 @@
 
             <!-- Doctor Info -->
             <div class="profile-card">
+                {% if order.doctor.image.url %}
                 <img src="{{ order.doctor.image.url }}" alt="Doctor Picture">
+                {% endif %}
                 <div>
                     <h6 class="mb-1"><strong>Doctor:</strong> {{ order.doctor.full_name }}</h6>
                     <span class="tag">Specialist</span>
@@ -82,7 +84,9 @@
 
             <!-- Patient Info -->
             <div class="profile-card">
+                {% if order.patient.image %}
                 <img src="{{ order.patient.image.url }}" alt="Patient Picture">
+                {% endif %}
                 <div>
                     <h6 class="mb-1"><strong>Patient:</strong> {{ order.patient.name }}</h6>
                     <span class="tag">Registered Patient</span>

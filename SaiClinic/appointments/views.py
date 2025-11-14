@@ -14,6 +14,9 @@ class AppointmentList(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         user = self.request.user
+
+        if user.is_staff:
+            return Appointment.objects.all().order_by('date', 'time')
         
         # If logged-in user is a doctor
         if hasattr(user, 'doctor_profile'):
